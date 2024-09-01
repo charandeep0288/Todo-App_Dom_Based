@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #101010;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  background-color: #232020;
+  width: 30%;
+  height: 60%;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#todos {
+  margin-top: 10px;
+  display: grid;
+}
+
+.todos-title,
+.add-todo-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.add-todo-container input {
+  margin-right: 3%;
+}
+
+.todo-container {
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #101010;
+  width: 70%;
+  border-radius: 10px;
+}

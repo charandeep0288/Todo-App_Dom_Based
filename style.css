@@ -11,21 +11,32 @@ body {
 .container {
   height: 100vh;
   width: 100vw;
-  background-color: #2f3640;
+  background-color: #2d3436;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.main-content {
+.page-content {
   background-color: #ffffff;
-  width: 50%;
-  height: 70%;
+  width: 97%;
+  height: 95%;
   border: 1px solid white;
   border-radius: 10px;
-  padding: 1% 2%;
   overflow: hidden;
   overflow-y: scroll;
+}
+
+.content {
+  padding: 0% 2% 1% 2%;
+}
+
+.top-content {
+  background-color: #ffffff;
+  position: sticky;
+  padding-top: 1%;
+  top: 0px;
+  border-bottom: 2px solid #636e72;
 }
 
 #todos {
@@ -156,13 +167,15 @@ body {
   transform: translateY(0);
 }
 
-.button-24, .button-25, .button-26 {
-  background: #FF4742;
-  border: 1px solid #FF4742;
+.button-24,
+.button-25,
+.button-26 {
+  background: #ff4742;
+  border: 1px solid #ff4742;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   /* font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif; */
@@ -186,11 +199,12 @@ body {
 .button-24:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: #ff4742;
 }
 
-.button-24:active, .button-25:active {
-  opacity: .5;
+.button-24:active,
+.button-25:active {
+  opacity: 0.5;
 }
 
 .button-25 {
@@ -199,12 +213,11 @@ body {
 }
 
 .button-25:hover,
-.button-25:active { 
+.button-25:active {
   background-color: initial;
   background-position: 0 0;
   color: #eccc68;
 }
-
 
 .button-26 {
   background: #6ab04c;
@@ -212,9 +225,8 @@ body {
 }
 
 .button-26:hover,
-.button-26:active { 
+.button-26:active {
   background-color: initial;
   background-position: 0 0;
   color: #6ab04c;
 }
-

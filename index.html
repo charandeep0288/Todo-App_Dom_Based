@@ -10,21 +10,27 @@
   </head>
   <body>
     <div class="container">
-      <div class="main-content scrollbar">
-        <div class="todos-title">
-          <h1>Todo List</h1>
-        </div>
-        <div class="add-todo-container">
-          <input
-            type="text"
-            placeholder="Add todo....."
-            class="todos-input"
-            id="todo-input"
-          />
-          <button class="button-28" id="add-todo">Add todo</button>
-        </div>
+      <div class="page-content scrollbar">
+        <div class="content">
+          <div class="top-content">
+            <div class="todos-title">
+              <h1>Todo List</h1>
+            </div>
+            <div class="add-todo-container">
+              <input
+                type="text"
+                placeholder="Add todo....."
+                class="todos-input"
+                id="todo-input"
+              />
+              <button class="button-28" id="add-todo">Add todo</button>
+            </div>
+          </div>
 
-        <div id="todos"></div>
+          <div class="todos-container">
+            <div id="todos"></div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

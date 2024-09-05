@@ -1,41 +1,49 @@
-let TODOS = [];
+if (!localStorage.getItem("TODOS")) localStorage.setItem("TODOS", "[]");
 
 document.querySelector("#add-todo").addEventListener("click", addTodo);
 
 function addTodo(e) {
   const task = document.querySelector("#todo-input").value;
+  const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+
   if (!task) {
     alert("Please enter the task!!");
     return;
   }
 
   const newTodo = {
-    id: TODOS.length + 1,
+    id: LOCAL_TODOS.length + 1,
     task: task,
     isCompleted: false,
   };
 
   document.querySelector("#todo-input").value = "";
-  TODOS.push(newTodo);
+
+  LOCAL_TODOS.push(newTodo);
+  localStorage.setItem("TODOS", JSON.stringify(LOCAL_TODOS));
 
   renderTodos();
 }
 
 function updateTodo(todoId) {
-  renderTodos({ updateTodo: true, updateTodoId: todoId});
+  renderTodos({ updateTodo: true, updateTodoId: todoId });
 }
 
 function saveTodo(todoId) {
+  const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+
   const updatedTodoValue = document.querySelector(
     `#updated-todo-${todoId}`
   ).value;
 
-  TODOS.map((todo) => {
+  LOCAL_TODOS.map((todo) => {
     if (todo.id == todoId) {
       todo.task = updatedTodoValue;
       todo.isCompleted = false;
     }
   });
+
+  localStorage.setItem("TODOS", JSON.stringify(LOCAL_TODOS));
 
   renderTodos();
 }
@@ -45,18 +53,24 @@ function cancelUpdatingTodo() {
 }
 
 function deleteTodo(todoId) {
-  TODOS = TODOS.filter(todo => todo.id != todoId);
-  
+  const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+  const UPDATED_TODOS = LOCAL_TODOS.filter((todo) => todo.id != todoId);
+  localStorage.setItem("TODOS", JSON.stringify(UPDATED_TODOS));
+
   renderTodos();
 }
 
 function markDoneTodo(todoId) {
-  TODOS.map((todo) => {
+  const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+
+  LOCAL_TODOS.map((todo) => {
     if (todo.id == todoId) {
       if (!todo.isCompleted) todo.isCompleted = true;
       else todo.isCompleted = false;
     }
   });
+
+  localStorage.setItem("TODOS", JSON.stringify(LOCAL_TODOS));
 
   renderTodos();
 }
@@ -81,10 +95,14 @@ function createEachTodoComponent(todo, obj) {
 }
 
 function renderTodos(obj) {
+  const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+
   const todoElement = document.querySelector("#todos");
   todoElement.innerHTML = "";
-  TODOS.map((todo) => {
+  LOCAL_TODOS.map((todo) => {
     const eachTodo = createEachTodoComponent(todo, obj);
     todoElement.appendChild(eachTodo);
   });
 }
+
+renderTodos();

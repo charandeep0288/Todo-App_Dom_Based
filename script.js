@@ -5,6 +5,7 @@ document.querySelector("#add-todo").addEventListener("click", addTodo);
 function addTodo(e) {
   const task = document.querySelector("#todo-input").value;
   const LOCAL_TODOS = JSON.parse(localStorage.getItem("TODOS"));
+  const id = (new Date()).getTime();
 
   if (!task) {
     alert("Please enter the task!!");
@@ -12,7 +13,7 @@ function addTodo(e) {
   }
 
   const newTodo = {
-    id: LOCAL_TODOS.length + 1,
+    id: id,
     task: task,
     isCompleted: false,
   };
